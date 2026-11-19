@@ -3,10 +3,11 @@ import { img } from "../../utils/img";
 
 function Banner() {
   return (
-    <section
-      className="rounded-b-[60px] bg-cover bg-bottom bg-no-repeat pb-[100px] pt-[150px] md:rounded-b-[150px] lg:py-[225px]"
-      style={{ backgroundImage: `url(${img("banner-bg.jpg")})` }}
-    >
+<section
+  id="home"
+  className="rounded-b-[60px] bg-cover bg-bottom bg-no-repeat pb-[100px] pt-[150px] md:rounded-b-[150px] lg:py-[225px]"
+  style={{ backgroundImage: `url(${img("banner-bg.jpg")})` }}
+>
       <Container>
         <div className="grid items-center gap-[45px] lg:grid-cols-12">
           <div className="text-center lg:col-span-6 lg:text-left">

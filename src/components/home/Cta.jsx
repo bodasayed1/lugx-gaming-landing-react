@@ -28,7 +28,7 @@ function Cta() {
               incididunt.
             </p>
             <div className="mt-[50px]">
-              <MainButton to="/shop">Shop Now</MainButton>
+              <MainButton>Shop Now</MainButton>
             </div>
           </div>
 

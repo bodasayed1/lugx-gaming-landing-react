@@ -5,7 +5,7 @@ import { trendingGames } from "../../data/games";
 
 function Trending() {
   return (
-    <section className="mt-[80px] lg:mt-[120px]">
+    <section id="trending" className="mt-[80px] scroll-mt-[40px] lg:mt-[120px]">
       <Container>
         <SectionTop subtitle="Trending" title="Trending Games" />
         <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-4">

@@ -4,7 +4,7 @@ import CategoryList from "../CategoryList";
 
 function Categories() {
   return (
-    <section className="mt-[80px] lg:mt-[120px]">
+    <section id="categories" className="mt-[80px] scroll-mt-[40px] lg:mt-[120px]">
       <Container>
         <SectionHeading
           subtitle="Categories"

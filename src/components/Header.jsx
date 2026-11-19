@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-// import Container from "./Container";
-import { img } from "../utils/img";
 import Container from "./container";
+import { img } from "../utils/img";
 
 const links = [
-  { name: "Home", path: "/" },
-  { name: "Our Shop", path: "/shop" },
-  { name: "Product Details", path: "/product-details" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Home", active: true },
+  { name: "Our Shop", active: false },
+  { name: "Product Details", active: false },
+  { name: "Contact Us", active: false },
 ];
 
 function Header() {
@@ -22,6 +20,11 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false);
+  };
+
   return (
     <header
       className={`left-0 right-0 z-[100] transition-all duration-500 ${
@@ -32,13 +35,13 @@ function Header() {
     >
       <Container>
         <nav className="relative flex h-[80px] items-center justify-between">
-          <Link to="/">
+          <a href="#" onClick={handleClick}>
             <img
               src={img("logo.png")}
               alt="Lugx logo"
               className={`w-[110px] ${scrolled ? "" : "lg:w-[158px]"}`}
             />
-          </Link>
+          </a>
 
           <button
             className="text-2xl text-white md:hidden"
@@ -54,26 +57,24 @@ function Header() {
             } absolute left-0 right-0 top-full overflow-hidden rounded-b-[25px] bg-white shadow-[0_0_15px_rgba(0,0,0,0.15)] md:static md:flex md:items-center md:gap-[10px] md:overflow-visible md:rounded-none md:bg-transparent md:shadow-none xl:gap-[20px]`}
           >
             {links.map((link) => (
-              <li key={link.path} className="border-t border-[#ddd] md:border-0">
-                <NavLink
-                  to={link.path}
-                  end
-                  onClick={() => setMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block h-[50px] text-center text-[0.9rem] capitalize leading-[50px] tracking-[0.25px] transition-all duration-300 md:h-[40px] md:rounded-[20px] md:px-[10px] md:font-light md:leading-[40px] lg:px-[20px] ${
-                      isActive
-                        ? "text-[#ee626b] md:bg-white/10 md:text-white"
-                        : "text-[#1e1e1e] md:text-white md:hover:bg-white/10"
-                    }`
-                  }
+              <li key={link.name} className="border-t border-[#ddd] md:border-0">
+                <a
+                  href="#"
+                  onClick={handleClick}
+                  className={`block h-[50px] text-center text-[0.9rem] capitalize leading-[50px] tracking-[0.25px] transition-all duration-300 md:h-[40px] md:rounded-[20px] md:px-[10px] md:font-light md:leading-[40px] lg:px-[20px] ${
+                    link.active
+                      ? "text-[#ee626b] md:bg-white/10 md:text-white"
+                      : "text-[#1e1e1e] md:text-white md:hover:bg-white/10"
+                  }`}
                 >
                   {link.name}
-                </NavLink>
+                </a>
               </li>
             ))}
             <li className="border-t border-[#ddd] md:border-0">
               <a
                 href="#"
+                onClick={handleClick}
                 className="block h-[50px] text-center text-[0.9rem] capitalize leading-[50px] tracking-[0.25px] text-[#1e1e1e] md:h-[40px] md:rounded-[20px] md:bg-[#ee626b] md:px-[10px] md:font-medium md:uppercase md:leading-[40px] md:text-white lg:px-[20px]"
               >
                 Sign In

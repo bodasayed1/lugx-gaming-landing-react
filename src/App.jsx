@@ -1,22 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import ProductDetails from "./pages/ProductDetails";
-import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product-details" element={<ProductDetails />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Header />
+      <main>
+        <Home />
+      </main>
+      <Footer />
+    </>
   );
 }
 

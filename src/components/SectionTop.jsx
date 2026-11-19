@@ -10,7 +10,7 @@ function SectionTop({ subtitle, title, centerOnSmall = false }) {
         className={centerOnSmall ? "w-full text-center lg:w-auto lg:text-left" : ""}
       />
       <div className="hidden lg:block">
-        <MainButton to="/shop">View All</MainButton>
+        <MainButton>View All</MainButton>
       </div>
     </div>
   );
